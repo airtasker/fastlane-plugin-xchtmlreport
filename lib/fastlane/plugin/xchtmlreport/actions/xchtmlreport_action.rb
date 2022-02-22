@@ -104,7 +104,7 @@ module Fastlane
           FastlaneCore::ConfigItem.new(
             key: :downsize_images,
             type: Boolean,
-            default_value: true,
+            default_value: false,
             description: "Downsizes image",
             optional: true
           ),
