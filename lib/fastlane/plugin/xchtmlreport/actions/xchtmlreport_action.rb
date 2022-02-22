@@ -32,6 +32,7 @@ module Fastlane
         command_comps << '-v' if params[:verbose]
         command_comps << '-i' if params[:inline_assets]
         command_comps << '-z' if params[:downsize_images]
+        command_comps << '-d' if params[:delete_unattached_files]
 
         sh(command_comps.join(' '))
       end
@@ -94,8 +95,25 @@ module Fastlane
 
           FastlaneCore::ConfigItem.new(
             key: :enable_junit,
-            default_value: false,
+            type: Boolean,
+            default_value: true,
             description: "Enables JUnit XML output 'report.junit'",
+            optional: true
+          ),
+
+          FastlaneCore::ConfigItem.new(
+            key: :downsize_images,
+            type: Boolean,
+            default_value: true,
+            description: "Downsizes image",
+            optional: true
+          ),
+
+          FastlaneCore::ConfigItem.new(
+            key: :delete_unattached_files,
+            type: Boolean,
+            default_value: true,
+            description: "Delete unattached files",
             optional: true
           ),
 
