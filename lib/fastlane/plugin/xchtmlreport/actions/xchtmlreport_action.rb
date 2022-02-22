@@ -31,6 +31,7 @@ module Fastlane
         command_comps << '-j' if params[:enable_junit]
         command_comps << '-v' if params[:verbose]
         command_comps << '-i' if params[:inline_assets]
+        command_comps << '-z' if params[:downsize_images]
 
         sh(command_comps.join(' '))
       end
